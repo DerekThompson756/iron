@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-
 @dataclass
-class Klass():
+class Affinity():
     toBeBuilt: str
