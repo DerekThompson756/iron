@@ -1,5 +1,6 @@
 from dataclasses import dataclass
+from gameStats import Stats
 
 @dataclass
 class Affinity():
-    toBeBuilt: str
+    gameStats: Stats
