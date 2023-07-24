@@ -5,9 +5,9 @@ from app.map.grid import Grid
 # pygame setup
 pygame.init()
 
-ZOOM = 4
+ZOOM = (4,4)
 MAP_SIZE = (15, 10)
-screen_res = (MAP_SIZE[0] * 16, MAP_SIZE[1] * 16)
+screen_res = (MAP_SIZE[0] * 16 * ZOOM[0], MAP_SIZE[1] * 16 * ZOOM[1])
 print(screen_res)
 
 screen = pygame.display.set_mode(screen_res)
