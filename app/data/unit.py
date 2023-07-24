@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from klass import Klass
 from affinity import Affinity
+from gameStats import Stats
 
 @dataclass
 class Unit():
@@ -10,7 +11,7 @@ class Unit():
     description: str
     klass: Klass
     tags: list()
-    stats: dict()
+    stats: Stats 
     weapon_exp: dict()
     inventory: list()
     personal_skills: list()
