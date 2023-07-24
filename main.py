@@ -5,12 +5,14 @@ from app.map.grid import Grid
 # pygame setup
 pygame.init()
 
-ZOOM = (4,4)
+ZOOM = 4
 MAP_SIZE = (15, 10)
-screen_res = (MAP_SIZE[0] * 16 * ZOOM[0], MAP_SIZE[1] * 16 * ZOOM[1])
+screen_res = (MAP_SIZE[0] * 16 , MAP_SIZE[1] * 16 )
+display_res = (MAP_SIZE[0] * 16 * ZOOM, MAP_SIZE[1] * 16 * ZOOM)
 print(screen_res)
 
 screen = pygame.display.set_mode(screen_res)
+display_win = pygame.display.set_mode(display_res)
 clock = pygame.time.Clock()
 
 grid = Grid(MAP_SIZE[0], MAP_SIZE[1])
