@@ -67,8 +67,7 @@ class Cursor(pygame.sprite.Sprite):
                 if self.x != self.map_size[0]-1:
                     self.x += 1
         self.update_pos()
-        print(self.rect.topleft)
-        print(self.abs_pos)
+        print(self.pos)
         
 
     def update_pos(self):
