@@ -16,5 +16,5 @@ class Unit():
     inventory: list()
     personal_skills: list()
     spell_list: dict()
-    affinity: Affinity 
+    affinity: Affinity
     
