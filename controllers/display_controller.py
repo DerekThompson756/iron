@@ -1,5 +1,5 @@
 import pygame
-from controllers.event_controller import eventListener
+from controllers.event_controller import event_listener
 from app.map.grid import Grid
 from app.menu.cursor import Cursor
 
@@ -36,7 +36,7 @@ def game():
     while running:
         # poll for events
         # pygame.QUIT event means the user clicked X to close your window
-        eventListener(cursor)
+        event_listener(cursor)
 
         # fill the screen with a color to wipe away anything from last frame
         # screen.fill("dark green")

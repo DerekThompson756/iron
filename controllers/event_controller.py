@@ -1,7 +1,7 @@
 import pygame
 from app.menu.key_input import arrow_keys
 
-def eventListener(cursor):
+def event_listener(cursor):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -9,6 +9,6 @@ def eventListener(cursor):
             key_input = arrow_keys(event)
             cursor.move(key_input)
 
-def eventInitialize():
+def event_initialize():
     #do stuff
     print()
