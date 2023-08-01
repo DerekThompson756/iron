@@ -7,10 +7,14 @@ pygame.init()
 
 ZOOM = 4
 MAP_SIZE = (15, 10)
-screen_res = (MAP_SIZE[0] * 16, MAP_SIZE[1] * 16)
+screen_res = (MAP_SIZE[0] * 16 , MAP_SIZE[1] * 16 )
+display_res = (MAP_SIZE[0] * 16 * ZOOM, MAP_SIZE[1] * 16 * ZOOM)
 print(screen_res)
+print(display_res)
 
-screen = pygame.display.set_mode(screen_res)
+display_win = pygame.display.set_mode(display_res)
+screen = pygame.Surface(screen_res)
+
 clock = pygame.time.Clock()
 
 grid = Grid(MAP_SIZE[0], MAP_SIZE[1])
@@ -37,6 +41,11 @@ if __name__ == "__main__":
 
         # flip() the display to put your work on screen
         draw(screen)
+
+        #Window scaling
+        scaled_win = pygame.transform.scale(screen, display_win.get_size())
+        display_win.blit(scaled_win, (0,0))
+        pygame.display.flip
 
         clock.tick(60)  # limits FPS to 60
 
