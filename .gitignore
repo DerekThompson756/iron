@@ -3,3 +3,7 @@ app/map/__pycache__/grid.cpython-311.pyc
 app/map/__pycache__/tile.cpython-311.pyc
 __pycache__/grid.cpython-38.pyc
 __pycache__/tile.cpython-38.pyc
+controllers/__pycache__/event_controller.cpython-311.pyc
+controllers/__pycache__/display_controller.cpython-311.pyc
+app/menu/__pycache__/key_input.cpython-311.pyc
+app/menu/__pycache__/cursor.cpython-311.pyc
