@@ -1,4 +1,4 @@
-from app.map.tile import Tile
+from app.map.tile import Tile   
 
 class Grid():
 
