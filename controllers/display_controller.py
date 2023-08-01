@@ -5,9 +5,10 @@ from app.menu.cursor import Cursor
 
 
 ZOOM = 4
+SQUARE_SIZE = (16,16)
 MAP_SIZE = (15, 10)
 grid = Grid(MAP_SIZE[0], MAP_SIZE[1])
-cursor = Cursor(MAP_SIZE, 16, 16)
+cursor = Cursor(MAP_SIZE,SQUARE_SIZE)
 screen_res = (MAP_SIZE[0] * 16 , MAP_SIZE[1] * 16 )
 display_res = (MAP_SIZE[0] * 16 * ZOOM, MAP_SIZE[1] * 16 * ZOOM)
 
