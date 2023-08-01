@@ -1,6 +1,7 @@
 import pygame
+from controllers.animation import Animation
 
-class Tile():
+class Tile(pygame.sprite.Sprite, Animation):
     
     def __init__(self, x, y, width, height):
         self.x = x

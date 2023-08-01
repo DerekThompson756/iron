@@ -1,7 +1,7 @@
 import pygame
+from controllers.animation import Animation
 
-
-class Cursor(pygame.sprite.Sprite):
+class Cursor(pygame.sprite.Sprite, Animation):
     
     def __init__(self,MAP_SIZE,SQUARE_SIZE):
         super().__init__()
