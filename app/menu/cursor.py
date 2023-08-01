@@ -13,6 +13,7 @@ class Cursor(pygame.sprite.Sprite):
         self.height = SQUARE_SIZE[1]
         self.abs_x = self.x * self.width
         self.abs_y = self.y * self.height
+        self.pos = (self.x, self.y)
         self.abs_pos = (self.abs_x, self.abs_y)
         self.selected_unit = None
         self.rect = pygame.Rect(
@@ -31,7 +32,7 @@ class Cursor(pygame.sprite.Sprite):
 
     def draw(self, display):
         self.update_pos()
-        display.blit(self.img, self.rect.topleft)
+        display.blit(self.img, (self.rect.topleft[0]-self.sqaure_size[0],self.rect.topleft[1]-self.sqaure_size[1]))
 
     def update(self):
         self.anim += 1
@@ -57,20 +58,24 @@ class Cursor(pygame.sprite.Sprite):
                 if self.y != 0:
                     self.y -= 1
             if direction == 'down':
-                if self.y != self.map_size[1]:
+                if self.y != self.map_size[1]-1:
                     self.y += 1
             if direction == 'left':
                 if self.x != 0:
                     self.x -= 1
             if direction == 'right':
-                if self.y != self.map_size[0]:
+                if self.x != self.map_size[0]-1:
                     self.x += 1
         self.update_pos()
-        print(self.pos)
+        print(self.rect.topleft)
+        print(self.abs_pos)
+        
 
     def update_pos(self):
         self.abs_x = self.x * self.width
         self.abs_y = self.y * self.height
+        self.pos = (self.x, self.y)
         self.abs_pos = (self.abs_x, self.abs_y)
         self.selected_unit = None
-        self.rect.move(self.abs_x, self.abs_y)
+        self.rect.update(self.abs_x, self.abs_y, self.sqaure_size[0],self.sqaure_size[1])
+        

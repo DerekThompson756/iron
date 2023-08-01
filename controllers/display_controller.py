@@ -13,6 +13,7 @@ screen_res = (MAP_SIZE[0] * 16 , MAP_SIZE[1] * 16 )
 display_res = (MAP_SIZE[0] * 16 * ZOOM, MAP_SIZE[1] * 16 * ZOOM)
 
 
+
 def draw(display):
     display.fill('white')
     grid.draw(display)
