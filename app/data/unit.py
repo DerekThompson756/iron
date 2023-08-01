@@ -18,3 +18,7 @@ class Unit():
     spell_list: dict()
     affinity: Affinity
     
+
+    def draw(self, display):
+        display.blit(self.img, self.rect.topleft)
+    

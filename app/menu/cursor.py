@@ -28,26 +28,26 @@ class Cursor(pygame.sprite.Sprite):
                     pygame.image.load(img_path + 'cursor_3.png')]
         self.current_sprite = 0
         self.img = self.sprites[self.current_sprite]
-        self.anim = 1
+        self.frame = 1
 
     def draw(self, display):
         self.update_pos()
         display.blit(self.img, (self.rect.topleft[0]-self.sqaure_size[0],self.rect.topleft[1]-self.sqaure_size[1]))
 
     def update(self):
-        self.anim += 1
+        self.frame += 1
 
-        if 1 <= self.anim <= 25:
+        if 1 <= self.frame <= 25:
             self.current_sprite = 0
-        elif 26 <= self.anim <= 30:
+        elif 26 <= self.frame <= 30:
             self.current_sprite = 1
-        elif 31 <= self.anim <= 55:
+        elif 31 <= self.frame <= 55:
             self.current_sprite = 2
-        elif 56 <= self.anim <= 60:
+        elif 56 <= self.frame <= 60:
             self.current_sprite = 1
 
-        if self.anim >= 60:
-            self.anim = 1
+        if self.frame >= 60:
+            self.frame = 1
         
         self.img = self.sprites[int(self.current_sprite)]
 
