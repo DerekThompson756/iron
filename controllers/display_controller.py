@@ -30,7 +30,8 @@ def game():
     screen = pygame.Surface(screen_res)
     moving_sprites = pygame.sprite.Group()
     moving_sprites.add(cursor)
-    unit_loader.read_unit()
+    unit_loader.read_unit(0)
+    print(unit_loader.player_units)
     clock = pygame.time.Clock()
     
 

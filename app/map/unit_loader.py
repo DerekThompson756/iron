@@ -16,8 +16,8 @@ class Unit_Loader():
     def read_unit(self, chapter):
         #This will be connected to the json database
         #For now it will create units on its own
-        unit = Unit("0", "Duck", 1, "A very cool dude", Klass(), [], Stats(), {}, [], [], {}, Affinity())
-        placed_unit = Placed_Unit(unit, None, 0, 0, 0, 0, True)
+        #unit = Unit("0", "Duck", 1, "A very cool dude", Klass(), [], Stats(), {}, [], [], {}, Affinity())
+        placed_unit = Placed_Unit(None, None, 0, 0, 0, 0, True)
         self.load_unit(placed_unit, "player")
         print(self.player_units)
 
@@ -42,9 +42,8 @@ class Unit_Loader():
 
 
 @dataclass
-class Placed_Unit(pygame.sprite.Sprite, Animation, Square):
-    #Animation.__init__()
-    #Square.__init__(5, 5, 16, 16)
+class Placed_Unit(pygame.sprite.Sprite, Square):
+    Square.__init__(5, 5, 16, 16)
     unit: Unit
     commander: Unit
     #All ai attributes should be set to 0 for player units for consistancy
