@@ -1,8 +1,8 @@
 import pygame
 from dataclasses import dataclass
-from klass import Klass
-from affinity import Affinity
-from gameStats import Stats
+from app.data.klass import Klass
+from app.data.affinity import Affinity
+from app.data.gameStats import Stats
 from controllers.animation import Animation
 
 @dataclass

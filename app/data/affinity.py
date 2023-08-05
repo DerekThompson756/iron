@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from gameStats import Stats
+from app.data.gameStats import Stats
 
 @dataclass
 class Affinity():

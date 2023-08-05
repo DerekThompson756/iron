@@ -1,6 +1,5 @@
 import pygame
-from abc import ABC, abstarctmethod
-from animation import Animation
+from abc import ABC, abstractmethod
 
 class Square(ABC):
     def __init__(self, x, y, width, height):

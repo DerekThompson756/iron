@@ -2,7 +2,6 @@
 import pygame
 from controllers.display_controller import game
 
-
 # pygame setup
 pygame.init()
 
