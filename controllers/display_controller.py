@@ -36,13 +36,13 @@ def game():
     while running:
         # poll for events
         # pygame.QUIT event means the user clicked X to close your window
-        event_listener(cursor)
+        
 
         # fill the screen with a color to wipe away anything from last frame
         # screen.fill("dark green")
 
         # RENDER YOUR GAME HERE
-
+        
         # flip() the display to put your work on screen
         draw(screen)
 
@@ -53,3 +53,5 @@ def game():
         pygame.display.flip
 
         clock.tick(60)  # limits FPS to 60
+        running = event_listener(cursor)
+        

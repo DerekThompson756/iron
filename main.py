@@ -9,4 +9,6 @@ pygame.init()
 
 if __name__ == "__main__":
     game()
-    pygame.QUIT()
+    if pygame.get_init():
+        print(pygame.get_init())
+        pygame.QUIT()
