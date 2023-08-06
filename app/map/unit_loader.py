@@ -43,6 +43,7 @@ class Unit_Loader():
 
 @dataclass
 class Placed_Unit(pygame.sprite.Sprite, Square):
+    super(Square).__init__(5,5,16,16)
     unit: Unit
     commander: Unit
     #All ai attributes should be set to 0 for player units for consistancy
