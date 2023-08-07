@@ -2,7 +2,7 @@ import pygame
 from dataclasses import dataclass
 from app.data.unit import Unit
 from controllers.animation import Animation
-from controllers.square import Square
+from controllers.square import give_square
 from app.data.klass import Klass
 from app.data.stats import Stats
 from app.data.affinity import Affinity
@@ -17,7 +17,7 @@ class Unit_Loader():
         #This will be connected to the json database
         #For now it will create units on its own
         #unit = Unit("0", "Duck", 1, "A very cool dude", Klass(), [], Stats(), {}, [], [], {}, Affinity())
-        placed_unit = Placed_Unit(None, None, 0, 0, 0, 0, True)
+        placed_unit = Placed_Unit(None, None, 0, 0, 0, 0, True, 5, 5, 16, 16)
         self.load_unit(placed_unit, "player")
         print(self.player_units)
 
@@ -42,8 +42,7 @@ class Unit_Loader():
 
 
 @dataclass
-class Placed_Unit(pygame.sprite.Sprite, Square):
-    super(Square).__init__(5,5,16,16)
+class Placed_Unit(pygame.sprite.Sprite):
     unit: Unit
     commander: Unit
     #All ai attributes should be set to 0 for player units for consistancy
@@ -52,6 +51,13 @@ class Placed_Unit(pygame.sprite.Sprite, Square):
     target_ai: int
     recover_ai: int 
     retreat_ai: bool #Will move in recovery mode or not
+    x: int
+    y: int
+    width: int
+    height: int
+
+    def __post_init__(self):
+        give_square(self)
 
     def move():
         pass

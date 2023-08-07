@@ -31,7 +31,6 @@ def game():
     moving_sprites = pygame.sprite.Group()
     moving_sprites.add(cursor)
     unit_loader.read_unit(0)
-    print(unit_loader.player_units[0].pos)
     clock = pygame.time.Clock()
     
 

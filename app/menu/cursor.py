@@ -1,5 +1,6 @@
 import pygame
 from controllers.animation import Animation
+from controllers.square import give_square
 
 class Cursor(pygame.sprite.Sprite, Animation):
     
@@ -11,17 +12,7 @@ class Cursor(pygame.sprite.Sprite, Animation):
         self.y = (MAP_SIZE[1] // 2) - 1
         self.width = SQUARE_SIZE[0]
         self.height = SQUARE_SIZE[1]
-        self.abs_x = self.x * self.width
-        self.abs_y = self.y * self.height
-        self.pos = (self.x, self.y)
-        self.abs_pos = (self.abs_x, self.abs_y)
-        self.selected_unit = None
-        self.rect = pygame.Rect(
-            self.abs_x,
-            self.abs_y,
-            self.width,
-            self.height
-        )
+        give_square(self)
         img_path = 'resources/cursor/'
         self.sprites = [pygame.image.load(img_path + 'cursor_1.png'),
                     pygame.image.load(img_path + 'cursor_2.png'),

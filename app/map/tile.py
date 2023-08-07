@@ -1,5 +1,6 @@
 import pygame
 from controllers.animation import Animation
+from controllers.square import give_square
 
 class Tile(pygame.sprite.Sprite, Animation):
     
@@ -8,17 +9,7 @@ class Tile(pygame.sprite.Sprite, Animation):
         self.y = y
         self.width = width
         self.height = height
-        self.abs_x = x * width
-        self.abs_y = y * height
-        self.pos = (self.x, self.y)
-        self.abs_pos = (self.abs_x, self.abs_y)
-        self.occupying_unit = None
-        self.rect = pygame.Rect(
-            self.abs_x,
-            self.abs_y,
-            self.width,
-            self.height
-        )
+        give_square(self)
         self.tile_name = 'Plains'
         self.stats = []
         self.draw_color = 'green'
