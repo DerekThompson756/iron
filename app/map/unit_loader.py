@@ -42,7 +42,7 @@ class Unit_Loader():
 
 
 @dataclass
-class Placed_Unit(pygame.sprite.Sprite):
+class Placed_Unit(pygame.sprite.Sprite, Animation):
     unit: Unit
     commander: Unit
     #All ai attributes should be set to 0 for player units for consistancy
@@ -58,6 +58,28 @@ class Placed_Unit(pygame.sprite.Sprite):
 
     def __post_init__(self):
         give_square(self)
+        self.read_klass_anim(None)        
+        pygame.sprite.Sprite.__init__(self)
+        Animation.__init__(self)
+    
+    def read_klass_anim(self, Klass):
+        #This will be connected to the json database
+        #For now it will create units on its own
+        self.img_path = "resources/map_sprites/Mercenary-stand.png"
+        #self.sprites = [self.slice_spritesheet(self.img_path)]
+        #self.current_sprite = 0
+        self.img = pygame.image.load(self.img_path).convert_alpha()
+        #self.frame = 1
+
+    def slice_spritesheet(self, img_path):
+        spritesheet = pygame.image.load(img_path).convert_alpha()
+        return spritesheet
+    
+    def draw(self, display):
+        display.blit(self.img, self.rect.topleft)
+    
+    def update(self):
+        pass
 
     def move():
         pass

@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from app.data.klass import Klass
 
 class Animation(ABC):
     def __init__(self):
@@ -8,11 +9,15 @@ class Animation(ABC):
         self.img = None
         self.frame = int
 
-    @abstractmethod
+    def read_klass_anim(self, Klass):
+        pass
+
+    def slice_spritesheet(self, img_path):
+        pass
+
     def draw(self, display):
         pass
 
-    @abstractmethod
     def update(self):
         pass
     

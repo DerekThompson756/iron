@@ -20,17 +20,19 @@ def draw(display):
     display.fill('white')
     grid.draw(display)
     cursor.draw(display)
+    for unit in unit_loader.player_units:
+        unit.draw(display)
     pygame.display.update()
 
 
 def game():
-
-
     display_win = pygame.display.set_mode(display_res)
     screen = pygame.Surface(screen_res)
     moving_sprites = pygame.sprite.Group()
     moving_sprites.add(cursor)
     unit_loader.read_unit(0)
+    unit = unit_loader.player_units[0]
+    unit.add(moving_sprites)
     clock = pygame.time.Clock()
     
 
