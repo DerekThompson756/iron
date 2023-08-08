@@ -1,5 +1,5 @@
 import pygame
-from dataclasses import dataclass
+
 from app.data.unit import Unit
 from controllers.animation import Animation
 from controllers.square import give_square
@@ -41,26 +41,28 @@ class Unit_Loader():
                 return (unit, 'other')
 
 
-@dataclass
-class Placed_Unit(pygame.sprite.Sprite, Animation):
-    unit: Unit
-    commander: Unit
-    #All ai attributes should be set to 0 for player units for consistancy
-    action_ai: int #Lookup table will be needed for these in the future
-    movement_ai: int 
-    target_ai: int
-    recover_ai: int 
-    retreat_ai: bool #Will move in recovery mode or not
-    x: int
-    y: int
-    width: int
-    height: int
 
-    def __post_init__(self):
+class Placed_Unit(pygame.sprite.Sprite, Animation):
+    def __init__(self,unit,commander, action_ai, movement_ai,target_ai,recover_ai,retreat_ai,x,y,width,height) -> None:
+        super().__init__()
+        self.unit : Unit = unit
+        self.commander: Unit  = commander  
+        #All ai attributes should be set to 0 for player units for consistancy
+        self.action_ai: int = action_ai#Lookup table will be needed for these in the future
+        self.movement_ai: int = movement_ai
+        self.target_ai: int = target_ai
+        self.recover_ai: int = recover_ai
+        self.retreat_ai: bool = retreat_ai #Will move in recovery mode or not
+        self.x: int = x
+        self.y: int = y
+        self.width: int = width
+        self.height: int = height
         give_square(self)
         self.read_klass_anim(None)        
         pygame.sprite.Sprite.__init__(self)
         Animation.__init__(self)
+
+
     
     def read_klass_anim(self, Klass):
         #This will be connected to the json database
