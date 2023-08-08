@@ -32,7 +32,10 @@ def game():
     moving_sprites.add(cursor)
     unit_loader.read_unit(0)
     unit = unit_loader.player_units[0]
-    unit.add(moving_sprites)
+    # This is the line thats messing stuff up
+    # It has something to do with unit not being hashable?
+    # I think it has somethin to do with unit.img
+    moving_sprites.add(unit)
     clock = pygame.time.Clock()
     
 
