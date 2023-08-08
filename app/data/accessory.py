@@ -5,6 +5,6 @@ from skill import Skill
 @dataclass
 class Accessory(Item):
     usable: bool
-    stats: dict #(str; int)
-    skill_on_equip: Skill #nullable
-    skill_on_use: Skill #nullable
+    stats: {str: int}
+    skill_on_equip: Skill or None
+    skill_on_use: Skill or None
