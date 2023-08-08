@@ -19,7 +19,7 @@ class Unit_Loader():
         #unit = Unit("0", "Duck", 1, "A very cool dude", Klass(), [], Stats(), {}, [], [], {}, Affinity())
         placed_unit = Placed_Unit(None, None, 0, 0, 0, 0, True, 5, 5, 16, 16)
         self.load_unit(placed_unit, "player")
-        print(self.player_units)
+        print("Units loaded:", self.player_units)
 
     def load_unit(self, unit, faction):
         if faction == "player":
@@ -59,8 +59,6 @@ class Placed_Unit(pygame.sprite.Sprite, Animation):
         self.height: int = height
         give_square(self)
         self.read_klass_anim(None)        
-        pygame.sprite.Sprite.__init__(self)
-        Animation.__init__(self)
 
 
     
@@ -68,10 +66,10 @@ class Placed_Unit(pygame.sprite.Sprite, Animation):
         #This will be connected to the json database
         #For now it will create units on its own
         self.img_path = "resources/map_sprites/Mercenary-stand.png"
-        #self.sprites = [self.slice_spritesheet(self.img_path)]
-        #self.current_sprite = 0
+        self.sprites = [self.slice_spritesheet(self.img_path)]
+        self.current_sprite = 0
         self.img = pygame.image.load(self.img_path).convert_alpha()
-        #self.frame = 1
+        self.frame = 1
 
     def slice_spritesheet(self, img_path):
         spritesheet = pygame.image.load(img_path).convert_alpha()
@@ -85,3 +83,9 @@ class Placed_Unit(pygame.sprite.Sprite, Animation):
 
     def move():
         pass
+
+    def __str__(self) -> str:
+        return str(self.unit) + f"({self.x} , {self.y})"
+
+    def __repr__(self) -> str:
+        return str(self.unit) + f"({self.x} , {self.y})"
