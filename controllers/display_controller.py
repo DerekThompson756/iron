@@ -31,11 +31,7 @@ def game():
     moving_sprites = pygame.sprite.Group()
     moving_sprites.add(cursor)
     unit_loader.read_unit(0)
-    unit = unit_loader.player_units[0]
-    # This is the line thats messing stuff up
-    # It has something to do with unit not being hashable?
-    # I think it has somethin to do with unit.img
-    moving_sprites.add(unit)
+    moving_sprites.add(unit_loader.player_units[0])
     clock = pygame.time.Clock()
     
 
@@ -45,9 +41,6 @@ def game():
         # poll for events
         # pygame.QUIT event means the user clicked X to close your window
         event_listener(cursor)
-
-        # fill the screen with a color to wipe away anything from last frame
-        # screen.fill("dark green")
 
         # RENDER YOUR GAME HERE
 

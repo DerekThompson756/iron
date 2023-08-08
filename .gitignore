@@ -9,3 +9,4 @@ controllers/__pycache__/display_controller.cpython-311.pyc
 app/menu/__pycache__/key_input.cpython-311.pyc
 app/menu/__pycache__/cursor.cpython-311.pyc
 *.pyc
+*.pyc
