@@ -9,11 +9,9 @@ class Animation(ABC):
         self.img = None
         self.frame = int
 
-    @abstractmethod
     def draw(self, display):
         pass
 
-    @abstractmethod
     def update(self):
         pass
     

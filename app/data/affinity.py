@@ -1,6 +1,11 @@
 from dataclasses import dataclass
-from gameStats import Stats
+from app.data.in_combat_stats import In_Combat_Stats
 
 @dataclass
 class Affinity():
-    gameStats: Stats
+    id: int
+    name: str
+    description: str
+    bonuses: In_Combat_Stats
+    icon_path: str # file path for icon
+    
