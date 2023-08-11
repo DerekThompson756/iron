@@ -14,22 +14,22 @@ class Cursor(pygame.sprite.Sprite, Animation):
         self.width = SQUARE_SIZE[0]
         self.height = SQUARE_SIZE[1]
         give_square(self)
-        img_path = "resources/sprites/cursor.png"
-        spritesheet = Spritesheet(img_path)
+        spritesheet = Spritesheet("resources/sprites/cursor.png")
         sprite_rect = pygame.Rect(
         self.abs_x,
         self.abs_y,
         32,
         32
                     )
-        self.sprites = spritesheet.load_strip(sprite_rect, 3, -1)
+        self.sprites = spritesheet.load_strip((0,-1,32,32), 3, -1)
+        print(self.sprites)
         self.current_sprite = 0
         self.img = self.sprites[self.current_sprite]
         self.frame = 1
 
     def draw(self, display):
         self.update_pos()
-        display.blit(self.img, (self.rect.topleft[0]-self.sqaure_size[0],self.rect.topleft[1]-self.sqaure_size[1]))
+        display.blit(self.img, (self.rect.center[0]-self.sqaure_size[0],self.rect.center[1]-self.sqaure_size[1]))
 
     def update(self):
         self.frame += 1
