@@ -178,7 +178,7 @@ class Placed_Unit(pygame.sprite.Sprite, Animation):
         elif 31 <= self.frame <= 55:
             self.current_sprite = 4
         elif 56 <= self.frame <= 60:
-            self.current_sprite = 0
+            self.current_sprite = 2
 
         if self.frame >= 60:
             self.frame = 1
