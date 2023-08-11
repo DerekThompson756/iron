@@ -15,12 +15,6 @@ class Cursor(pygame.sprite.Sprite, Animation):
         self.height = SQUARE_SIZE[1]
         give_square(self)
         spritesheet = Spritesheet("resources/sprites/cursor.png")
-        sprite_rect = pygame.Rect(
-        self.abs_x,
-        self.abs_y,
-        32,
-        32
-                    )
         self.sprites = spritesheet.load_strip((0,-1,32,32), 3, -1)
         print(self.sprites)
         self.current_sprite = 0
