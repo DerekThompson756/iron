@@ -19,9 +19,9 @@ display_res = (MAP_SIZE[0] * 16 * ZOOM, MAP_SIZE[1] * 16 * ZOOM)
 def draw(display):
     display.fill('white')
     grid.draw(display)
-    cursor.draw(display)
     for unit in unit_loader.player_units:
         unit.draw(display)
+    cursor.draw(display)
     pygame.display.update()
 
 
