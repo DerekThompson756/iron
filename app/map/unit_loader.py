@@ -1,5 +1,5 @@
 import pygame
-
+from controllers.sprite_sheet import Spritesheet
 from app.data.unit import Unit
 from controllers.animation import Animation
 from controllers.square import give_square
@@ -125,8 +125,6 @@ class Placed_Unit(pygame.sprite.Sprite, Animation):
         sets Animation attributes based on Unit's klass
         - At the moment create data from scratch
 
-    slice_spritesheet(img_path: str)
-        slices spiritesheet to be used in self.sprites
 
     draw(display)
         draws Placed_Unit to display
@@ -160,24 +158,43 @@ class Placed_Unit(pygame.sprite.Sprite, Animation):
     def read_klass_anim(self, klass):
         #This will be connected to the json database
         #For now it will create units on its own
-        self.img_path = "resources/map_sprites/Mercenary-stand.png"
-        self.sprites = [self.slice_spritesheet(self.img_path)]
+        self.sprites = Spritesheet("resources/map_sprites/Mercenary-stand.png").load_strip((16,15,32,32), 5, -1)
+        print(self.sprites)
         self.current_sprite = 0
-        self.img = pygame.image.load(self.img_path).convert_alpha()
+        self.img = self.sprites[self.current_sprite]
         self.frame = 1
 
-    def slice_spritesheet(self, img_path):
-        spritesheet = pygame.image.load(img_path).convert_alpha()
-        return spritesheet
     
     def draw(self, display):
-        display.blit(self.img, self.rect.topleft)
+        display.blit(self.img, (self.rect.center[0]-16,self.rect.center[1]-17))
     
     def update(self):
-        pass
+        self.frame += 1
+
+        if 1 <= self.frame <= 25:
+            self.current_sprite = 0
+        elif 26 <= self.frame <= 30:
+            self.current_sprite = 2
+        elif 31 <= self.frame <= 55:
+            self.current_sprite = 4
+        elif 56 <= self.frame <= 60:
+            self.current_sprite = 0
+
+        if self.frame >= 60:
+            self.frame = 1
+        
+        self.img = self.sprites[int(self.current_sprite)]
 
     def move(self, x, y):
         pass
+
+    def update_pos(self):
+        self.abs_x = self.x * self.width
+        self.abs_y = self.y * self.height
+        self.pos = (self.x, self.y)
+        self.abs_pos = (self.abs_x, self.abs_y)
+        self.selected_unit = None
+        self.rect.update(self.abs_x, self.abs_y, self.sqaure_size[0],self.sqaure_size[1])
 
     def __str__(self) -> str:
         return str(self.unit) + f"({self.x} , {self.y})"
