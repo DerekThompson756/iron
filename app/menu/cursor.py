@@ -1,5 +1,7 @@
 import pygame
 from controllers.animation import Animation
+from controllers.sprite_sheet import Spritesheet
+from controllers.square import give_square
 
 class Cursor(pygame.sprite.Sprite, Animation):
     
@@ -11,28 +13,17 @@ class Cursor(pygame.sprite.Sprite, Animation):
         self.y = (MAP_SIZE[1] // 2) - 1
         self.width = SQUARE_SIZE[0]
         self.height = SQUARE_SIZE[1]
-        self.abs_x = self.x * self.width
-        self.abs_y = self.y * self.height
-        self.pos = (self.x, self.y)
-        self.abs_pos = (self.abs_x, self.abs_y)
-        self.selected_unit = None
-        self.rect = pygame.Rect(
-            self.abs_x,
-            self.abs_y,
-            self.width,
-            self.height
-        )
-        img_path = 'resources/cursor/'
-        self.sprites = [pygame.image.load(img_path + 'cursor_1.png'),
-                    pygame.image.load(img_path + 'cursor_2.png'),
-                    pygame.image.load(img_path + 'cursor_3.png')]
+        give_square(self)
+        spritesheet = Spritesheet("resources/sprites/cursor.png")
+        self.sprites = spritesheet.load_strip((0,-1,32,32), 3, -1)
+        
         self.current_sprite = 0
         self.img = self.sprites[self.current_sprite]
         self.frame = 1
 
     def draw(self, display):
         self.update_pos()
-        display.blit(self.img, (self.rect.topleft[0]-self.sqaure_size[0],self.rect.topleft[1]-self.sqaure_size[1]))
+        display.blit(self.img, (self.rect.center[0]-self.sqaure_size[0],self.rect.center[1]-self.sqaure_size[1]))
 
     def update(self):
         self.frame += 1

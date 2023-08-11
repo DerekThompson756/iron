@@ -6,7 +6,6 @@ class Grid():
         self.rows = rows
         self.columns = columns
         self.selected_unit = None
-        self.turn = 'player'
         self.grid = self.create_grid(self.rows, self.columns)
 
     def create_grid(self, rows, columns):
