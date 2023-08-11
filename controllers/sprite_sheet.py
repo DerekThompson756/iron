@@ -11,7 +11,7 @@ import pygame
 class Spritesheet(object):
     def __init__(self, filename):
         try:
-            self.sheet = pygame.image.load(filename).convert()
+            self.sheet = pygame.image.load(filename)
         except pygame.error as message:
             print('Unable to load spritesheet image:', filename)
             raise SystemExit(message)
@@ -19,7 +19,7 @@ class Spritesheet(object):
     def image_at(self, rectangle, colorkey = None):
         "Loads image from x,y,x+offset,y+offset"
         rect = pygame.Rect(rectangle)
-        image = pygame.Surface(rect.size).convert()
+        image = pygame.Surface(rect.size)
         image.blit(self.sheet, (0, 0), rect)
         if colorkey is not None:
             if colorkey == -1:
