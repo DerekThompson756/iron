@@ -4,6 +4,8 @@ from app.data.klass import Klass
 from app.data.affinity import Affinity
 from app.data.gameStats import Stats
 from controllers.animation import Animation
+from app.data.skill import Skill
+from app.data.weapon import Weapon
 
 @dataclass
 class Unit(pygame.sprite.Sprite, Animation):
@@ -14,10 +16,10 @@ class Unit(pygame.sprite.Sprite, Animation):
     klass: Klass
     tags: list()
     stats: Stats 
-    weapon_exp: dict()
+    weapon_exp: {str in ("Sword", "Lance", "Bow", "White", "Black", "Monster", "Other"): int}
     inventory: list()
-    personal_skills: list()
-    spell_list: dict()
+    personal_skills: [Skill] or []
+    spell_list: [Weapon]
     affinity: Affinity
 
 

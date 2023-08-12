@@ -3,6 +3,7 @@ from controllers.event_controller import event_listener
 from app.map.grid import Grid
 from app.menu.cursor import Cursor
 from app.map.unit_loader import Unit_Loader
+from app.data.weapon import Weapon
 
 
 ZOOM = 4

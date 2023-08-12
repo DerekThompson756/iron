@@ -9,11 +9,13 @@ class Animation(ABC):
         self.img = None
         self.frame = int
 
+
     def read_klass_anim(self, Klass):
         pass
 
     def slice_spritesheet(self, img_path):
         pass
+
 
     def draw(self, display):
         pass
