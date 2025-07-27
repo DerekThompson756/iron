@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from item import Item
-from skill import Skill
+from app.data.item import Item
+from app.data.skill import Skill
 from app.data.stats import Stats
 from app.data.in_combat_stats import In_Combat_Stats
 
