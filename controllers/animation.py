@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from app.data.klass import Klass
+
 
 class Animation(ABC):
     def __init__(self):
